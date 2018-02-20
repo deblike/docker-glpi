@@ -6,21 +6,21 @@ MAINTAINER deblike@gmail.com
 #Interactive mode disabled 
 ENV DEBIAN_FRONTEND noninteractive
 
-#Install Apache & php7 
+#Install Apache & php7.0 
 RUN apt update \
 && apt -y install \
 apache2 \
-php7 \
-php7-mysql \
-php7-ldap \
-php7-xmlrpc \
-php7-imap \
+php7.0 \
+php7.0-mysql \
+php7.0-ldap \
+php7.0-xmlrpc \
+php7.0-imap \
 curl \
-php7-curl \
-php7-gd \
-php7-mbstring \
-php7-xml \
-php7-apcu-bc \
+php7.0-curl \
+php7.0-gd \
+php7.0-mbstring \
+php7.0-xml \
+php-apcu-bc \
 wget
 
 #Copy and execute GLPI install scrip
