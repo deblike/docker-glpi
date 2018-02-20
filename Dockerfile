@@ -1,32 +1,32 @@
-#On choisit une debian
-FROM debian:latest
+#Based on Debian
+FROM debian:stretch
 
-MAINTAINER DiouxX "github@diouxx.be"
+MAINTAINER deblike@gmail.com
 
-#Ne pas poser de question à l'installation
+#Interactive mode disabled 
 ENV DEBIAN_FRONTEND noninteractive
 
-#Installation d'apache et de php5 avec extension
+#Install Apache & php7 
 RUN apt update \
 && apt -y install \
 apache2 \
-php \
-php-mysql \
-php-ldap \
-php-xmlrpc \
-php-imap \
+php7 \
+php7-mysql \
+php7-ldap \
+php7-xmlrpc \
+php7-imap \
 curl \
-php-curl \
-php-gd \
-php-mbstring \
-php-xml \
-php-apcu-bc \
+php7-curl \
+php7-gd \
+php7-mbstring \
+php7-xml \
+php7-apcu-bc \
 wget
 
-#Copie et execution du script pour l'installation et l'initialisation de GLPI
+#Copy and execute GLPI install scrip
 COPY glpi-start.sh /opt/
 RUN chmod +x /opt/glpi-start.sh
 ENTRYPOINT ["/opt/glpi-start.sh"]
 
-#Exposition des ports
+#Expose port
 EXPOSE 80 443

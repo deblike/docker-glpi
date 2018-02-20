@@ -7,7 +7,7 @@ mysql-data:
 
 #Mysql Container
 mysql:
- image: mysql
+    image: mysql:5.7
  container_name: mysql
  hostname: mysql
  volumes_from:
@@ -24,11 +24,12 @@ glpi-data:
 
 #GLPI Container
 glpi:
- image: diouxx/glpi
+    image: deblike/docker-glpi:0.4
  container_name : glpi
  hostname: glpi
  ports:
   - "80:80"
+  - "443:443"
  links:
   - mysql:mysql
  volumes_from:
